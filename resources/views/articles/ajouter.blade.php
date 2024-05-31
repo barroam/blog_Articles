@@ -16,7 +16,8 @@
     </header>
   <h1 class="titre">Mon Blog</h1>
  <div class="container">
-    <form class=" form-group col-8 justify-content-center ">
+    <form class=" form-group col-8 justify-content-center " action="/article/sauvegarde" method="post">
+        @csrf
         <div class="mb-3">
           <label for="titre" class="form-label">titre</label>
           <input type="text" class="form-control" name="titre" id="titre">
@@ -33,7 +34,7 @@
           <input type="checkbox" class="form-check-input" id="a_la_une" name="a_la_une" >
           <label class="form-check-label" for="a_la_une" value='1'>a la une</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
       </form>
  </div>
   

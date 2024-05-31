@@ -6,7 +6,7 @@
     <title>Mon Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
+  <body class="bg-dark text-light">
     <header>
         <nav class="navbar1">
             <a href="" class="brand">Life/Blog</a>
@@ -17,9 +17,9 @@
            
         </nav>
     </header>
-  <h1 class="titre m-5"> Articles {{$article->id}}</h1>
+  <h1 class="titre m-5"> Articles n°{{$article->id}} {{ $article->titre }} </h1>
  
-<div class="container  d-flex">
+<div class="container  d-flex lith">
  
   
   
@@ -28,12 +28,12 @@
           
    
 
-    <div class="container d-flex " >
+    <div class="container form-group d-flex p7 " >
         <img class="w-25" src="{{$article->url_image}}">
         <div class="p-3">
-            <h2 class="xs ">  {{ $article->titre }} </h2>
+            <h2 class="xs ">   </h2>
             <i class="{{ $article->a_la_une }}">   </i>
-            <p class="">   {{ $article->description }}     </p>
+            <p class="">   {{ $article->description }}     </hp>
         
         </div>
         
@@ -41,17 +41,17 @@
     </div>
 </div>
     
-        <form class=" form-group col-4 justify-content-end ">
+        <form class=" form-group col-2 row-4 justify-content-end bg-dark- text-light p-4 border">
             <div class="mb-3">
-              <label for="auteur" class="form-label">titre</label>
-              <input type="text" class="form-control" name="auteur" id="auteur">
+              <label for="auteur" class="form-label ">titre</label>
+              <input type="text" class="form-control bg-dark-subtle" name="auteur" id="auteur">
             </div>
             <div class="mb-3">
               <label for="contenu" class="form-label">description</label>
-            <textarea name="contenu" class="form-control" id="contenu" cols="30" rows="12"></textarea>
+            <textarea name="contenu" class="form-control bg-dark-subtle" id="contenu" cols="5" rows="5"></textarea>
             </div>
           
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary ">Submit</button>
           </form>
 
 

@@ -20,10 +20,14 @@ class ArticleController extends Controller
         return view('articles.detail',compact('article'));
     }
 
+    public function sauvegarde(Request $request){
+        Article::create($request->all());
+       return redirect('/article');
+    }
+
+
+
+
+
+
 }
-
-
-
-
-
-
