@@ -20,23 +20,34 @@
 
   
   <h1 class="titre">Mon Blog</h1>
-   <a class="btn btn-primary justify-content-end" href="ajouter">Ajouter une article</a>
-<div class="container  d-flex">
+   <a class="btn btn-primary justify-content-end m-3" href="ajouter">Ajouter une article</a>
+   @if (session('status'))
+   <div class="alert alert-succes">
+     {{session('status')}}</div>
+@endif
+<div class="container  d-flex flex-wrap ">
+
     @foreach ( $articles as $article )
         
     
-    <div class="container border col-3" >
+    <div class="container border col-3 m-2 p-2 bg-dark text-light rounded-2" >
         <img class="w-100" src="{{$article->url_image}}">
         <div>
             <h2 class=" dark "> {{$article->titre}}</h2>
-            @if($article->a_la_une)
-            <i class="fa-solid fa-heart text-danger"></i>
-            @endif
+        
         </div>
       
+      <div class="navbar">
+        <a href="article/{{ $article->id }}" class="btn btn-primary"> <i class="fa-solid fa-info" style="color: #3e4147;"></i></a> 
+        @if($article->a_la_une)
+        <i class="fa-solid fa-heart text-danger"></i>
+        @endif
+        </div>  
         <div>
-            <a href="article/{{ $article->id }}" class="btn btn-primary"> Voir détails</a> 
-            <a href="article/partager" class="btn btn-dark"> Partager vos idées</a>
+          
+            <a href="article/partager" class="btn btn-light"> <i class="fa-solid fa-share" style="color: #043e67;"></i></a>
+            <a href="article/modifier/{{ $article->id }}" class="btn btn-light m-1"> <i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
+           
         </div>
        </div>
 

@@ -14,33 +14,28 @@
             <a href="/article/contact">Contact</a>
         </nav>
     </header>
-  <h1 class="titre"> Ajouter Article </h1>
-  @if (session('status'))
-      <div class="alert alert-succes">
-        {{session('status')}}</div>
-
-      
-  @endif
+  <h1 class="titre">Modifier l'article n°{{$article->id}} de </h1>
  <div class="container">
-    <form class=" form-group col-8 justify-content-center " action="/article/sauvegarde" method="post">
+    <form class=" form-group col-8 justify-content-center " action="/mise_a_jour" method="post">
         @csrf
+        <input type="hidden" id="id" name="id" value="{{$article->id}}">
         <div class="mb-3">
           <label for="titre" class="form-label">titre</label>
-          <input type="text" class="form-control" name="titre" id="titre">
+          <input type="text" class="form-control" name="titre" id="titre" value="{{$article->titre}}">
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">description</label>
-        <textarea name="description" class="form-control" id="description" cols="30" rows="12"></textarea>
+        <textarea name="description" class="form-control" id="description" cols="30" rows="12"> {{$article->description}} </textarea>
         </div>
         <div>
             <label for="url_image" class="form-label">image</label>
-            <input type="text" class="form-control" name="url_image" id="url_image" >
+            <input type="text" class="form-control" name="url_image" id="url_image" value="{{$article->url_image}}" >
         </div>
         <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="a_la_une" name="a_la_une" >
           <label class="form-check-label" for="a_la_une" value='1'>a la une</label>
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
       </form>
  </div>
   
