@@ -19,7 +19,7 @@
     </header>
   <h1 class="titre m-5"> Articles n°{{$article->id}} {{ $article->titre }} </h1>
  
-<div class="container  d-flex lith">
+<div class="container  d-flex ">
  
   
   
@@ -33,7 +33,7 @@
         <div class="p-3">
             <h2 class="xs ">   </h2>
             <i class="{{ $article->a_la_une }}">   </i>
-            <p class="">   {{ $article->description }}     </hp>
+            <h5 class="">   {{ $article->description }}     </h5>
         
         </div>
         
@@ -41,18 +41,79 @@
     </div>
 </div>
     
-        <form class=" form-group col-2 row-4 justify-content-end bg-dark- text-light p-4 border">
-            <div class="mb-3">
-              <label for="auteur" class="form-label ">titre</label>
-              <input type="text" class="form-control bg-dark-subtle" name="auteur" id="auteur">
-            </div>
-            <div class="mb-3">
-              <label for="contenu" class="form-label">description</label>
-            <textarea name="contenu" class="form-control bg-dark-subtle" id="contenu" cols="5" rows="5"></textarea>
-            </div>
-          
-            <button type="submit" class="btn btn-primary ">Submit</button>
-          </form>
+<div class="container d-flex ">
+    <div>
+        <section style="background-color: black; p-2">
+            <div class="card w-100 " style=" background-color: #e7effd ;">
+                <div class="card-body p-4">
+                  <div class="">
+                    <h5>Johny Cash</h5>
+                    
+                    <p>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                      ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                      viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                      Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
+                      vulputate at, tempus viverra turpis.
+                    </p>
+    
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex align-items-center">
+                        <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>132</a>
+                        <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>15</a>
+                      </div>
+                
+                    </div>
+                  </div>
+                </div>
+              </div>
+                   
+          </section>
+
+          <section style="background-color: #e7effd; p-2">
+            <div class="card w-100">
+                <div class="card-body p-4">
+                  <div class="">
+                    <h5>Johny Cash</h5>
+                    
+                    <p>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                      ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                      viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                      Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
+                      vulputate at, tempus viverra turpis.
+                    </p>
+    
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex align-items-center">
+                        <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>132</a>
+                        <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>15</a>
+                      </div>
+                
+                    </div>
+                  </div>
+                </div>
+              </div>
+                   
+          </section>
+    </div>
+    <form class=" form-group col-4 row-4  bg-dark- text-light p-4 border m-2 rounded-2" action="/commentaire/ajouter_commentaire"
+    method="POST">
+    @csrf
+    <input type="hidden" name ="article_id" value="{{$article->id}}" >
+        <div class="mb-3">
+                  <label for="auteur" class="form-label ">titre</label>
+          <input type="text" class="form-control bg-dark-subtle" name="auteur" id="auteur">
+        </div>
+        <div class="mb-3">
+          <label for="contenu" class="form-label">description</label>
+        <textarea name="contenu" class="form-control bg-dark-subtle" id="contenu" cols="8" rows="5"></textarea>
+        </div>
+      
+        <button type="submit" class="btn btn-primary ">Submit</button>
+      </form>
+
+</div>
 
 
 

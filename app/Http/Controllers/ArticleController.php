@@ -31,15 +31,22 @@ class ArticleController extends Controller
 
     public function mise_a_jour_articles(Request $request){
         $article = Article::find($request->id);
+        $article->titre=$request->titre;
         $article->description= $request->description;
         $article->url_image= $request->url_image;
         $article->a_la_une= $request->a_la_une;
         $article->update();
         return redirect('/article')->with('status','modifier avec succes');
-
-       
     }
 
+    public function supprime_articles($id){
+            $article=Article:: find($id);
+            $article->delete();
+           return redirect('/article')->with('status','supprimer avec succes');
+            
+    }
+
+   
 
 
 }

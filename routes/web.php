@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentaireController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,11 @@ Route::post('/article/sauvegarde',[ArticleController::class,'sauvegarde']);
 Route::get('/article/modifier/{id}',[ArticleController::class,'modifier_articles']);
 // la route du page de la mise a jour de modification d'un article
 Route::post('/mise_a_jour',[ArticleController::class,'mise_a_jour_articles']);
+//la route du page pour supprimer un article 
+Route::get('supprime/{id}',[ArticleController::class,'supprime_articles']);
+
+
+
+
+//la route du page de l'article pour ajouter un commentaire
+Route::post('/commentaire/ajouter_commentaire',[CommentaireController::class,'ajouter_commentaires']);

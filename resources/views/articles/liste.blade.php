@@ -18,19 +18,20 @@
       
     </header>
 
-  
+
   <h1 class="titre">Mon Blog</h1>
-   <a class="btn btn-primary justify-content-end m-3" href="ajouter">Ajouter une article</a>
-   @if (session('status'))
-   <div class="alert alert-succes">
-     {{session('status')}}</div>
-@endif
-<div class="container  d-flex flex-wrap ">
+   <a class="btn btn-primary justify-content-end m-3 align-items-end " href="ajouter">Ajouter une article</a>
+  <h1 class="align-items-center">     @if (session('status'))
+    <div class="alert alert-succes text-primary     ">
+      {{session('status')}}</div>
+      @endif</h1>
+
+<div class="container  d-flex justify-content-space-around gap-5  flex-wrap ">
 
     @foreach ( $articles as $article )
         
     
-    <div class="container border col-3 m-2 p-2 bg-dark text-light rounded-2" >
+    <div class="container border col-3  bg-dark text-light rounded-2 p-1 justify-content-center" >
         <img class="w-100" src="{{$article->url_image}}">
         <div>
             <h2 class=" dark "> {{$article->titre}}</h2>
@@ -47,7 +48,7 @@
           
             <a href="article/partager" class="btn btn-light"> <i class="fa-solid fa-share" style="color: #043e67;"></i></a>
             <a href="article/modifier/{{ $article->id }}" class="btn btn-light m-1"> <i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
-           
+            <a href="supprime/{{ $article->id }}" class="btn btn-danger m-1"> <i class="fa-solid fa-trash" style="color: #5b1706;"></i></a>
         </div>
        </div>
 
