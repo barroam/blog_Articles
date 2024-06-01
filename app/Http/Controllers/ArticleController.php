@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -17,7 +18,7 @@ class ArticleController extends Controller
     }
     public function details($id){
         $article = Article::find($id);
-        return view('articles.detail',compact('article'));
+       return view('articles.detail',compact('article'));
     }
 
     public function sauvegarde(Request $request){
@@ -45,7 +46,12 @@ class ArticleController extends Controller
            return redirect('/article')->with('status','supprimer avec succes');
             
     }
-
+ 
+    public function details_commentaires($id){
+        $article = Article::find($id);
+        $commentaires = Commentaire::all()->where('article_id',$id) ;
+       return view('articles.detail',compact('article','commentaires'));
+    }
    
 
 

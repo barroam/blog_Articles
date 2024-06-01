@@ -42,6 +42,8 @@
 </div>
     
 <div class="container d-flex ">
+ @foreach ( $commentaires as $commentaire)
+ 
     <div>
         <section style="background-color: black; p-2">
             <div class="card w-100 " style=" background-color: #e7effd ;">
@@ -50,11 +52,8 @@
                     <h5>Johny Cash</h5>
                     
                     <p>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                      ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                      viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                      Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
-                      vulputate at, tempus viverra turpis.
+                  {{$commentaire->contenu}}
+                  
                     </p>
     
                     <div class="d-flex justify-content-between align-items-center">
@@ -70,32 +69,8 @@
                    
           </section>
 
-          <section style="background-color: #e7effd; p-2">
-            <div class="card w-100">
-                <div class="card-body p-4">
-                  <div class="">
-                    <h5>Johny Cash</h5>
-                    
-                    <p>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                      ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                      viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                      Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
-                      vulputate at, tempus viverra turpis.
-                    </p>
-    
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="d-flex align-items-center">
-                        <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>132</a>
-                        <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>15</a>
-                      </div>
-                
-                    </div>
-                  </div>
-                </div>
-              </div>
-                   
-          </section>
+            
+ @endforeach
     </div>
     <form class=" form-group col-4 row-4  bg-dark- text-light p-4 border m-2 rounded-2" action="/commentaire/ajouter_commentaire"
     method="POST">
