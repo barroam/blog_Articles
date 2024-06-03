@@ -46,7 +46,7 @@
         </div>  
         <div>
           
-            <a href="article/partager" class="btn btn-light"> <i class="fa-solid fa-share" style="color: #043e67;"></i></a>
+            <a href="article/partager" class="btn btn-light "> <i class="fa-solid fa-share" style="color: #043e67;"></i></a>
             <a href="article/modifier/{{ $article->id }}" class="btn btn-light m-1"> <i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
             <a href="supprime/{{ $article->id }}" class="btn btn-danger m-1"> <i class="fa-solid fa-trash" style="color: #5b1706;"></i></a>
         </div>

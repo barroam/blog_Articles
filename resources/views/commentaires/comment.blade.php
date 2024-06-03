@@ -5,56 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mon Blog</title>
 </head>
-  <body>
+  <body class="bg-dark ">
     <header>
         <nav class="navbar1">
             <a href="#home" class="brand">My Blog</a>
       
             <div class="art-con">
-              <a href="article">Articles</a>
+              <a href="/article">Articles</a>
               <a href="/article/contact">Contact</a>
           </div>
         </nav>
     </header>
-  <h1 class="titre"> Ajouter Article </h1>
-  @if (session('status'))
-      <div class="alert alert-succes">
-        {{session('status')}}</div>
+  <h1 class="titre"> modifier commentaire </h1>
+  <div class="d-flex justify-content-center">
 
-      
-  @endif
- <div class="container">
-    <form class=" form-group col-8 justify-content-center " action="/article/sauvegarde" method="post">
-        @csrf
-        <div class="mb-3">
-          <label for="titre" class="form-label">titre</label>
-          <input type="text" class="form-control" name="titre" id="titre">
-        </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">description</label>
-        <textarea name="description" class="form-control" id="description" cols="30" rows="12"></textarea>
-        </div>
-        <div>
-            <label for="url_image" class="form-label">image</label>
-            <input type="text" class="form-control" name="url_image" id="url_image" >
-        </div>
-        <div class="mb-3 form-check">
-          <input type="radio" class="form-check-input" id="flexRadioDefault1" name="a_la_une" >
-          <label class="form-check-label" for="flexRadioDefault1" value='1'>a la une</label>
-        </div>
-   
-   
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-      </form>
- </div>
+    <form class=" form-group col-5 row-4   text-light p-3 m-3  rounded-2 border  align-items-center"   action="/commentaire/update/{{$commentaire->id}}"
+    method="POST">
+    <!-- url('/commentaires/update/' . $commentaire->id)  -->
+  @csrf
+  @method('PUT')
+  <input type="hidden" name ="article_id" value="{{$commentaire->artice_id}}" >
+  <input type="hidden" name ="id" value="{{$commentaire->id}}" >
+      <div class="mb-3">
+                <label for="auteur" class="form-label ">auteur</label>
+        <input type="text" class="form-control bg-dark-subtle" name="auteur" id="auteur" value="{{$commentaire->auteur}}">
+      </div>
+      <div class="mb-3">
+        <label for="contenu" class="form-label">description</label>
+      <textarea name="contenu" class="form-control bg-dark-subtle" id="contenu" cols="8" rows="5" > {{$commentaire->contenu}} </textarea>
+      </div>
+    
+      <button type="submit" class="btn btn-primary ">Envoyer</button>
+    </form>
+
+
+  </div>
   
-
-
-
-
-   
   </body>
-  <style>
+<style>
+
            body {
             margin: 0;
             font-family: Arial, sans-serif;

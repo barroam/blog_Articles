@@ -19,7 +19,7 @@
     </header>
   <h1 class="titre m-5"> Articles n°{{$article->id}} {{ $article->titre }} </h1>
  
-<div class="container  d-flex ">
+<div class="container  d-flex " >
  
   
   
@@ -28,11 +28,11 @@
           
    
 
-    <div class="container form-group d-flex p7 " >
+    <div class="container form-group d-flex  " >
         <img class="w-25" src="{{$article->url_image}}">
         <div class="p-3">
-            <h2 class="xs ">   </h2>
-            <i class="{{ $article->a_la_une }}">   </i>
+            <h2 class="">   </h2>
+            <i class=" {{ $article->a_la_une }} ">   </i>
             <h5 class="">   {{ $article->description }}     </h5>
         
         </div>
@@ -41,43 +41,43 @@
     </div>
 </div>
     
-<div class="container d-flex ">
- @foreach ( $commentaires as $commentaire)
+<div class="container d-flex m-2 justify-content-space-between gap-2">
  
-    <div>
-        <section style="background-color: black; p-2">
-            <div class="card w-100 " style=" background-color: #e7effd ;">
-                <div class="card-body p-4">
+  
+    <div class=" ">
+       <section style="">
+        @foreach ( $commentaires as $commentaire)
+     
+            <div class="card w-100 m-2" >
+                <div class="card-body p-1">
                   <div class="">
-                    <h5>Johny Cash</h5>
+                    <h5> {{$commentaire->auteur}}</h5>
                     
                     <p>
-                  {{$commentaire->contenu}}
-                  
+                  {{$commentaire->contenu}}    
                     </p>
     
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="d-flex align-items-center">
-                        <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>132</a>
-                        <a href="#!" class="link-muted"><i class="fas fa-thumbs-down me-1"></i>15</a>
+                        <a href="" class="btn btn-light"> <i class="fa-solid fa-share" style="color: #043e67;"></i></a>
+                        <a href="/commentaire/comment/{{$commentaire->id}}" class="btn btn-light m-1"> <i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
+                        <a href="/commentaire/supprime/{{$commentaire->id}}" class="btn btn-danger m-1"> <i class="fa-solid fa-trash" style="color: #5b1706;"></i></a>
+                 
                       </div>
                 
                     </div>
                   </div>
                 </div>
               </div>
-                   
+              @endforeach 
           </section>
-
-            
- @endforeach
     </div>
-    <form class=" form-group col-4 row-4  bg-dark- text-light p-4 border m-2 rounded-2" action="/commentaire/ajouter_commentaire"
+    <form class=" form-group col- row-4   text-light p-3 m-3  rounded-2 border"   action="/commentaire/ajouter_commentaire"
     method="POST">
     @csrf
     <input type="hidden" name ="article_id" value="{{$article->id}}" >
         <div class="mb-3">
-                  <label for="auteur" class="form-label ">titre</label>
+                  <label for="auteur" class="form-label ">auteur</label>
           <input type="text" class="form-control bg-dark-subtle" name="auteur" id="auteur">
         </div>
         <div class="mb-3">
@@ -85,14 +85,10 @@
         <textarea name="contenu" class="form-control bg-dark-subtle" id="contenu" cols="8" rows="5"></textarea>
         </div>
       
-        <button type="submit" class="btn btn-primary ">Submit</button>
+        <button type="submit" class="btn btn-primary ">Envoyer</button>
       </form>
 
-</div>
-
-
-
-         
+</div>         
        
    
   </body>

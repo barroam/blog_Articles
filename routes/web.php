@@ -25,4 +25,9 @@ Route::get('/article/{id}',[ArticleController::class,'details_commentaires']);
 
 //la route du page  pour ajouter un commentaire
 Route::post('/commentaire/ajouter_commentaire',[CommentaireController::class,'ajouter_commentaires']);
-
+//la route du page commentaire pour modifier un commentaire
+Route::get('/commentaire/comment/{id}',[CommentaireController::class,'modifier_commentarires']);
+//la route du page commentaire pour le mise a jour d'un commentaire
+Route::put('commentaire/update/{id}',[CommentaireController::class,'mise_a_jour_commentaires']);
+// la route du page commentaire pour la suppression
+Route::get('commentaire/supprime/{id}',[CommentaireController::class,'supprime_commentaires']);

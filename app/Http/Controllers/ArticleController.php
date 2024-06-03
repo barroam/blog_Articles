@@ -22,21 +22,47 @@ class ArticleController extends Controller
     }
 
     public function sauvegarde(Request $request){
-        Article::create($request->all());
+        
+        $request->validate([
+            'titre' => 'required|max:255',
+            'description' => 'required',
+            'a_la_une' => 'required',
+            'url_image' => 'required',
+        ]);
+        // Article::create($request->all());
+        $article = new Article();
+         $article->titre = $request->titre;
+         $article->description = $request->description;
+        $article->url_image = $request->url_image;
+         $article->a_la_une = $request->a_la_une === 'on' ? 1 : 0;
+     
+       $article->save();
        return redirect('/article')->with('status','ajouter avec succes');
     }
     public function modifier_articles($id){
+     
+
       $article = Article::find($id);
         return view('articles.modifier',compact('article'));
     }
 
-    public function mise_a_jour_articles(Request $request){
-        $article = Article::find($request->id);
-        $article->titre=$request->titre;
-        $article->description= $request->description;
-        $article->url_image= $request->url_image;
-        $article->a_la_une= $request->a_la_une;
+    public function mise_a_jour_articles (Request $request){
+        
+        $request->validate([
+            'titre' => 'required|max:255',
+            'description' => 'required',
+            'a_la_une' => 'nullable',
+            'url_image' => 'required',
+        ]);
+
+        $article = Article::findOrFail($request->id);
+        $article->titre = $request->titre;
+        $article->description = $request->description;
+       $article->url_image = $request->url_image;
+        $article->a_la_une = $request->a_la_une === 'on' ? 1 : 0;
+
         $article->update();
+
         return redirect('/article')->with('status','modifier avec succes');
     }
 
@@ -52,6 +78,11 @@ class ArticleController extends Controller
         $commentaires = Commentaire::all()->where('article_id',$id) ;
        return view('articles.detail',compact('article','commentaires'));
     }
+      
+
+     
+     
+
    
 
 
