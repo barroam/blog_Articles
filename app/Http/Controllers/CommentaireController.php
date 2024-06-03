@@ -27,7 +27,8 @@ class CommentaireController extends Controller
    $commentaire->update();
 
       
-      return redirect()->route('commentaires.comment')->with('status','modifier avec succes');
+      // return redirect()->route('commentaires.comment')->with('status','modifier avec succes');
+      return redirect()->back();
     }
 
 public function supprime_commentaires($id){

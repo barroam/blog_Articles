@@ -17,9 +17,12 @@
         </nav>
     </header>
   <h1 class="titre"> modifier commentaire </h1>
-  <div class="d-flex justify-content-center">
 
-    <form class=" form-group col-5 row-4   text-light p-3 m-3  rounded-2 border  align-items-center"   action="/commentaire/update/{{$commentaire->id}}"
+  <a class="btn btn-primary justify-content-end m-3 align-items-end " href="/article/{{$commentaire->article_id}}">Retour</a>
+
+
+  <div class="d-flex justify-content-center">
+      <form class=" form-group col-5 row-4   text-light p-3 m-3  rounded-2 border  align-items-center"   action="/commentaire/update/{{$commentaire->id}}"
     method="POST">
     <!-- url('/commentaires/update/' . $commentaire->id)  -->
   @csrf
@@ -38,6 +41,8 @@
       <button type="submit" class="btn btn-primary ">Envoyer</button>
     </form>
 
+
+    
 
   </div>
   
