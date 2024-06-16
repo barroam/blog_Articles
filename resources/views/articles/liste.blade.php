@@ -11,14 +11,11 @@
         <nav class="navbar1">
             <a href="" class="brand">My Blog</a>
         <div class="art-con">
-            <a href="article">Articles</a>
-            <a href="/article/contact">Contact</a>
+            <a href="/">Articles</a>
+
         </div>
         </nav>
-      
     </header>
-
-
   <h1 class="titre">Mon Blog</h1>
    <a class="btn btn-primary justify-content-end m-3 align-items-end " href="ajouter">Ajouter une article</a>
   <h1 class="align-items-center">     @if (session('status'))
@@ -27,25 +24,19 @@
       @endif</h1>
 
 <div class="container  d-flex justify-content-space-around gap-5  flex-wrap ">
-
     @foreach ( $articles as $article )
-        
-    
     <div class="container border col-3  bg-dark text-light rounded-2 p-1 justify-content-center" >
         <img class="w-100" src="{{$article->url_image}}">
         <div>
             <h2 class=" dark "> {{$article->titre}}</h2>
-        
         </div>
-      
       <div class="navbar">
-        <a href="article/{{ $article->id }}" class="btn btn-primary"> <i class="fa-solid fa-info" style="color: #3e4147;"></i></a> 
+        <a href="article/{{ $article->id }}" class="btn btn-primary"> <i class="fa-solid fa-info" style="color: #3e4147;"></i></a>
         @if($article->a_la_une)
         <i class="fa-solid fa-heart text-danger"></i>
         @endif
-        </div>  
+        </div>
         <div>
-          
             <a href="article/partager" class="btn btn-light "> <i class="fa-solid fa-share" style="color: #043e67;"></i></a>
             <a href="article/modifier/{{ $article->id }}" class="btn btn-light m-1"> <i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
             <a href="supprime/{{ $article->id }}" class="btn btn-danger m-1"> <i class="fa-solid fa-trash" style="color: #5b1706;"></i></a>
@@ -54,12 +45,12 @@
 
  @endforeach
 </div>
-  
+
 
 
 
 <div style="position: relative; width: 100%; height: 0; padding-top: 25.0000%;
-padding-bottom: 0; box-shadow: 0 2px 8px 0 royalblue; margin-top: 5rem; margin-bottom: 0.0em; overflow: hidden; border-bottom: 1rem solid royalblue; 
+padding-bottom: 0; box-shadow: 0 2px 8px 0 royalblue; margin-top: 5rem; margin-bottom: 0.0em; overflow: hidden; border-bottom: 1rem solid royalblue;
 border-radius: 00; will-change: transform;">
  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGGwqD_CFM&#x2F;272Ra84f_jViQkIzLn1zEw&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
@@ -84,7 +75,7 @@ border-radius: 00; will-change: transform;">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   
+
   </body>
   <style>
            body {
@@ -93,10 +84,10 @@ border-radius: 00; will-change: transform;">
         }
  .ajou{
     display: flex;
- 
+
    justify-content: end;
-   
-   
+
+
  }
         .navbar1 {
             background-color:royalblue;

@@ -15,7 +15,10 @@ class Article extends Model
         'description',
     'url_image',
     'a_la_une'];
+
+
     public function commentaire():HasMany{
         return $this->hasMany(Commentaire::class);
     }
+    
 }

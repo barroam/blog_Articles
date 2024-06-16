@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     public function liste_articles(){
-       $articles = Article::all(); 
+       $articles = Article::all();
        return view('articles.liste', compact('articles'));
-   
+
     }
     public function ajouter_articles(){
         return view('articles.ajouter');
@@ -22,12 +22,12 @@ class ArticleController extends Controller
     }
 
     public function sauvegarde(Request $request){
-        
+
         $request->validate([
             'titre' => 'required|max:255',
             'description' => 'required',
             'a_la_une' => 'required',
-            'url_image' => 'required',
+            'url_image' => 'required|max:255',
         ]);
         // Article::create($request->all());
         $article = new Article();
@@ -35,19 +35,18 @@ class ArticleController extends Controller
          $article->description = $request->description;
         $article->url_image = $request->url_image;
          $article->a_la_une = $request->a_la_une === 'on' ? 1 : 0;
-     
+
        $article->save();
        return redirect('/article')->with('status','ajouter avec succes');
     }
-    public function modifier_articles($id){
-     
 
+    public function modifier_articles($id){
       $article = Article::find($id);
         return view('articles.modifier',compact('article'));
     }
 
     public function mise_a_jour_articles (Request $request){
-        
+
         $request->validate([
             'titre' => 'required|max:255',
             'description' => 'required',
@@ -70,20 +69,20 @@ class ArticleController extends Controller
             $article=Article:: find($id);
             $article->delete();
            return redirect('/article')->with('status','supprimer avec succes');
-            
+
     }
- 
+
     public function details_commentaires($id){
         $article = Article::find($id);
         $commentaires = Commentaire::all()->where('article_id',$id) ;
        return view('articles.detail',compact('article','commentaires'));
     }
-      
 
-     
-     
 
-   
+
+
+
+
 
 
 }

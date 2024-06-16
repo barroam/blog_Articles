@@ -9,9 +9,9 @@
     <header>
         <nav class="navbar1">
             <a href="#home" class="brand">My Blog</a>
-      
-            <a  href="/article">Articles</a>
-            <a href="/article/contact">Contact</a>
+
+            <a  href="/">Articles</a>
+
         </nav>
     </header>
   <h1 class="titre">Modifier l'article n°{{$article->id}} de </h1>
@@ -38,12 +38,12 @@
         <button type="submit" class="btn btn-primary">Modifier</button>
       </form>
  </div>
-  
 
 
 
 
-   
+
+
   </body>
   <style>
            body {

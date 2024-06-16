@@ -9,10 +9,10 @@
     <header>
         <nav class="navbar1">
             <a href="#home" class="brand">My Blog</a>
-      
+
             <div class="art-con">
-              <a href="article">Articles</a>
-              <a href="/article/contact">Contact</a>
+              <a href="/">Articles</a>
+
           </div>
         </nav>
     </header>
@@ -21,7 +21,7 @@
       <div class="alert alert-succes">
         {{session('status')}}</div>
 
-      
+
   @endif
  <div class="container">
     <form class=" form-group col-8 justify-content-center " action="/article/sauvegarde" method="post">
@@ -42,17 +42,17 @@
           <input type="radio" class="form-check-input" id="flexRadioDefault1" name="a_la_une" >
           <label class="form-check-label" for="flexRadioDefault1" value='1'>a la une</label>
         </div>
-   
-   
+
+
         <button type="submit" class="btn btn-primary">Envoyer</button>
       </form>
  </div>
-  
 
 
 
 
-   
+
+
   </body>
   <style>
            body {

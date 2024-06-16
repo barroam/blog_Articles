@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mon Blog</title>
 </head>
-  <body class="bg-dark ">
+  <body class=" ">
     <header>
         <nav class="navbar1">
             <a href="#home" class="brand">My Blog</a>
-      
+
             <div class="art-con">
-              <a href="/article">Articles</a>
-              <a href="/article/contact">Contact</a>
+              <a href="/">Articles</a>
           </div>
         </nav>
     </header>
@@ -31,21 +30,21 @@
   <input type="hidden" name ="id" value="{{$commentaire->id}}" >
       <div class="mb-3">
                 <label for="auteur" class="form-label ">auteur</label>
-        <input type="text" class="form-control bg-dark-subtle" name="auteur" id="auteur" value="{{$commentaire->auteur}}">
+        <input type="text" class="form-control " name="auteur" id="auteur" value="{{$commentaire->auteur}}">
       </div>
       <div class="mb-3">
         <label for="contenu" class="form-label">description</label>
-      <textarea name="contenu" class="form-control bg-dark-subtle" id="contenu" cols="8" rows="5" > {{$commentaire->contenu}} </textarea>
+      <textarea name="contenu" class="form-control " id="contenu" cols="8" rows="5" > {{$commentaire->contenu}} </textarea>
       </div>
-    
+
       <button type="submit" class="btn btn-primary ">Envoyer</button>
     </form>
 
 
-    
+
 
   </div>
-  
+
   </body>
 <style>
 
